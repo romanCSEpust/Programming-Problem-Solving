@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+void roman()
+{
+       int n;
+       cin>>n;
+       int limit=sqrt(n)+2;
+       bool a[n];
+       a[1]=false;
+       a[2]=true;
+       for(int i=2;i<=n;i++){
+       a[i]=true;
+       }
+       for(int i=2;i<=limit;i++){
+           if(a[i]==true)
+              for(int j=i*i;j<=n;j+=i)
+           {
+                  a[j]=false;
+           }
+       }
+       int cnt=0;
+       for(int i=1;i<=n;i++){
+       if(a[i]==true)
+              cnt++;
+       }
+        cout<<cnt<<endl;
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+           roman();
+    }
+}
