@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+#define long long int;
+using namespace std;
+int main() {
+        //int cnt=0;
+        int n; cin >> n;
+        vector<int> divisors[123];
+        for(int i=1;i<=n;i++)
+        {
+           int sq=sqrt(i);
+           for(int j=i;j<=n;j+=i)
+           {
+                divisors[j].push_back(i);
+           }
+           sort(divisors[i].begin(), divisors[i].end());
+        }
+
+        for (int i = 1; i <=n; ++i)
+        {
+            cout<<i<<" : ";
+            
+            for(auto u: divisors[i]) cout<<u<<" ";
+                cout<<endl;
+
+        }
+        cout<<endl;
+}
