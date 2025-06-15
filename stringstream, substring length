@@ -1,0 +1,28 @@
+class Solution {
+public:
+    string generateTag(string caption) {
+        string s,word;
+        stringstream ss(caption);
+        int cnt=0;
+        s.push_back('#');
+        while (ss >> word) {
+            cnt++;
+            if(cnt==1)
+            {
+           
+                 s.push_back(tolower((unsigned char)(word[0])));
+            }
+            else
+            {
+              s.push_back(toupper((unsigned char)(word[0])));
+            }
+           
+        for(int i=1;i<word.size();i++)
+        {
+            s.push_back(tolower((unsigned char)(word[i])));
+        }
+        
+        }
+    return s.substr(0,100);
+    }
+};
